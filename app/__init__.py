@@ -12,7 +12,6 @@ def test():
 
     return jsonify(
             text=text,
-            replace_original=True,
             reponse_type='in_channel'
         )
 
