@@ -12,7 +12,7 @@ def test():
 
     return jsonify(
             text=text,
-            reponse_type='in_channel'
+            response_type='in_channel'
         )
 
 def toMeme(text):
