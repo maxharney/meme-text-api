@@ -11,8 +11,7 @@ def test():
     text = toMeme(request.values['text'])
 
     return jsonify(
-            text=text,
-            response_type='in_channel'
+            text=text
         )
 
 def toMeme(text):
