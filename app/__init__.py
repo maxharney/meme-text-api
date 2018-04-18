@@ -1,13 +1,20 @@
 #!/usr/bin/python
 
 import sys
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 @app.route('/generate', methods=['GET', 'POST'])
 def test():
-    return toMeme(request.values['text'])
+    text = toMeme(request.values['text'])
+
+    return jsonify(
+            text=text,
+            replace_original=True,
+            reponse_type='in_channel'
+        )
 
 def toMeme(text):
     halfWidth = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<=>?@[\]^_`{|}~'
